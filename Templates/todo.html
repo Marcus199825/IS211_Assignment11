@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+</head>
+<body>
+    <h1>Todo List</h1>
+    <table border="1">
+        <tr>
+            <th>Task</th>
+            <th>Email</th>
+            <th>Priority</th>
+        </tr>
+        {% for item in todo_list %}
+        <tr>
+            <td>{{ item.task }}</td>
+            <td>{{ item.email }}</td>
+            <td>{{ item.priority }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <h2>Add New Todo Item</h2>
+    <form action="/" method="post">
+        <label for="task">Task:</label><br>
+        <input type="text" id="task" name="task"><br>
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email"><br>
+        <label for="priority">Priority:</label><br>
+        <select id="priority" name="priority">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select><br>
+        <br>
+        <input type="submit" value="Add To Do Item">
+    </form>
+    <br>
+    <form action="/clear" method="post">
+        <input type="submit" value="Clear">
+    </form>
+</body>
+</html>
